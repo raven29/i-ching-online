@@ -1,12 +1,38 @@
 <html>
 <head>
+  <script type="text/javascript">
+    window.onload = () => {
+      document.getElementsByTagName('body')[0].onclick = (e) => {
+        var i;
+        stems = document.getElementsByClassName('stem');
+        length = stems.length;
+        for (i = 0; i < length; i++) {
+          stems[i].style.transform = 'rotate(0deg)';
+          if (i < 2) {
+            stems[i].style.left = 20 + 20 * i;
+          } else {
+            stems[i].style.left = 100 + 20 * i;
+          }
+        }
+      };
+    };
+  </script>>
   <style type="text/css">
+    body {
+      background-color: #333;
+    }
     .stem {
       position: absolute;
       width: 10px;
       height: 500px;
       border-radius: 5px;
       background-color: #ebeec0;
+      background-image: linear-gradient(to right, #ebeec0, #b9c191);
+      border: 1px solid #000;
+      border-top: none;
+      border-bottom: none;
+      transition-property: transform, left;
+      transition-duration: 0.5s, 0.7s;
     }
     .stem .knot {
       position: absolute;
@@ -15,7 +41,11 @@
       border-radius: 5px;
       left: -8px;
       margin-left: 50%;
+      border: 1px dashed #8b6;
+      border-left: none;
+      border-right: none;
       background-color: inherit;
+      background-image: inherit;
     }
     /*.node:before {
       content: '';
@@ -34,22 +64,27 @@
   </style>
 </head>
 <body>
-  <div class="stem" style="transform: rotate(0deg); left: 100px;">
+  <div class="stem" style="transform: rotate(0deg); left: 100px; top: 20px;">
     <div class="knot" style="top: 50px;"></div>
     <div class="knot" style="top: 220px;"></div>
     <div class="knot" style="top: 380px;"></div>
   </div>
-  <div class="stem" style="transform: rotate(2deg); left: 120px;">
+  <div class="stem" style="transform: rotate(15deg); left: 100px; top: 15px;">
+    <div class="knot" style="top: 50px;"></div>
+    <div class="knot" style="top: 220px;"></div>
+    <div class="knot" style="top: 380px;"></div>
+  </div>
+  <div class="stem" style="transform: rotate(2deg); left: 120px; top: 10px;">
     <div class="knot" style="top: 55px;"></div>
     <div class="knot" style="top: 240px;"></div>
     <div class="knot" style="top: 350px;"></div>
   </div>
-  <div class="stem" style="transform: rotate(-3deg); left: 130px;">
+  <div class="stem" style="transform: rotate(-3deg); left: 130px; top: 5px;">
     <div class="knot" style="top: 150px;"></div>
     <div class="knot" style="top: 320px;"></div>
     <div class="knot" style="top: 440px;"></div>
   </div>
-  <div class="stem" style="transform: rotate(-2deg); left: 145px;">
+  <div class="stem" style="transform: rotate(-2deg); left: 145px; top: 10px;">
     <div class="knot" style="top: 20px;"></div>
     <div class="knot" style="top: 280px;"></div>
     <div class="knot" style="top: 380px;"></div>
