@@ -1,17 +1,17 @@
-<html>
+<!doctype html>
 <head>
   <script type="text/javascript">
     window.onload = () => {
       var stems = document.getElementsByClassName('stem');
-      document.getElementsByTagName('body')[0].onclick = (e) => {
+      document.getElementById('stage').onclick = (e) => {
         var i;
         length = stems.length;
         for (i = 0; i < length; i++) {
           stems[i].style.transform = 'rotate(0deg)';
           if (i < 2) {
-            stems[i].style.left = 20 + 20 * i;
+            stems[i].style.left = (20 + 20 * i + "px");
           } else {
-            stems[i].style.left = 100 + 20 * i;
+            stems[i].style.left = (100 + 20 * i + "px");
           }
         }
       };
@@ -20,6 +20,10 @@
   <style type="text/css">
     body {
       background-color: #ccc;
+    }
+    #stage {
+      width: 700px;
+      height: 700px;
     }
     .stem {
       position: absolute;
@@ -77,30 +81,34 @@
   </style>
 </head>
 <body>
-  <div class="stem" style="transform: rotate(0deg); left: 100px; top: 20px; background-image: linear-gradient(to bottom, #a5b47f, #69844f);">
-    <div class="knot l-u" style="top: 50px; border-top-color: #90a06f;"></div>
-    <div class="knot r-u" style="top: 220px; border-top-color: #90a06f;"></div>
-    <div class="knot l-u" style="top: 380px; border-top-color: #90a06f;"></div>
-  </div>
-  <div class="stem" style="transform: rotate(15deg); left: 100px; top: 15px; background-image: linear-gradient(to top, #a5b47f, #69844f);">
-    <div class="knot" style="top: 50px;"></div>
-    <div class="knot l-d" style="top: 220px; border-right-color: #90a06f;"></div>
-    <div class="knot" style="top: 380px;"></div>
-  </div>
-  <div class="stem" style="transform: rotate(2deg); left: 120px; top: 10px; background-image: linear-gradient(to bottom, #bb8e6f, #55474a);">
-    <div class="knot r-d" style="top: 55px; border-left-color: #bb8e6f;"></div>
-    <div class="knot" style="top: 240px;"></div>
-    <div class="knot l-d " style="top: 350px; border-right-color: #87705c;"></div>
-  </div>
-  <div class="stem" style="transform: rotate(-3deg); left: 130px; top: 5px; background-image: linear-gradient(to bottom, #a5b47f, #69844f);">
-    <div class="knot" style="top: 150px;"></div>
-    <div class="knot" style="top: 320px;"></div>
-    <div class="knot" style="top: 440px;"></div>
-  </div>
-  <div class="stem" style="transform: rotate(-2deg); left: 145px; top: 10px; background-image: linear-gradient(to top, #bb8e6f, #6c4b45);">
-    <div class="knot l-u" style="top: 20px; border-top-color: #87705c;"></div>
-    <div class="knot" style="top: 280px;"></div>
-    <div class="knot r-u" style="top: 380px; border-top-color: #bb8e6f;"></div>
+  <div id="root"></div>
+  <script src="bundle.js"></script>
+  <div id="stage">
+    <div class="stem" style="transform: rotate(0deg); left: 100px; top: 20px; background-image: linear-gradient(to bottom, #a5b47f, #69844f);">
+      <div class="knot l-u" style="top: 50px; border-top-color: #90a06f;"></div>
+      <div class="knot r-u" style="top: 220px; border-top-color: #90a06f;"></div>
+      <div class="knot l-u" style="top: 380px; border-top-color: #90a06f;"></div>
+    </div>
+    <div class="stem" style="transform: rotate(15deg); left: 100px; top: 15px; background-image: linear-gradient(to top, #a5b47f, #69844f);">
+      <div class="knot" style="top: 50px;"></div>
+      <div class="knot l-d" style="top: 220px; border-right-color: #90a06f;"></div>
+      <div class="knot" style="top: 380px;"></div>
+    </div>
+    <div class="stem" style="transform: rotate(2deg); left: 120px; top: 10px; background-image: linear-gradient(to bottom, #bb8e6f, #55474a);">
+      <div class="knot r-d" style="top: 55px; border-left-color: #bb8e6f;"></div>
+      <div class="knot" style="top: 240px;"></div>
+      <div class="knot l-d " style="top: 350px; border-right-color: #87705c;"></div>
+    </div>
+    <div class="stem" style="transform: rotate(-3deg); left: 130px; top: 5px; background-image: linear-gradient(to bottom, #a5b47f, #69844f);">
+      <div class="knot" style="top: 150px;"></div>
+      <div class="knot" style="top: 320px;"></div>
+      <div class="knot" style="top: 440px;"></div>
+    </div>
+    <div class="stem" style="transform: rotate(-2deg); left: 145px; top: 10px; background-image: linear-gradient(to top, #bb8e6f, #6c4b45);">
+      <div class="knot l-u" style="top: 20px; border-top-color: #87705c;"></div>
+      <div class="knot" style="top: 280px;"></div>
+      <div class="knot r-u" style="top: 380px; border-top-color: #bb8e6f;"></div>
+    </div>
   </div>
 </body>
 </html>
