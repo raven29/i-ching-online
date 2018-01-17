@@ -31,4 +31,4 @@ describe('Random lib tests', () => {
       expect(freq[index] / numberOfExperiments).toBeCloseTo(weights[index] / sumTotal, 1);
     }
   });
-})
+});

@@ -7,4 +7,4 @@ export function getRandom(weights){
     sum += weights[i];
     if (rand < sum) return i;
   }
-};
+}
