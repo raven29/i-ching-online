@@ -1,7 +1,7 @@
 module.exports = {
   "collectCoverage": true,
   "collectCoverageFrom": ["src/**/*.{js,jsx}"],
-  // "coverageReporters": ["text-summary", "html"],
+  "coverageReporters": ["text-summary", "html"],
   // "globals": {
   //   __base: __dirname
   // },
