@@ -1,4 +1,4 @@
-import '../src/index';
+import '../src/app';
 
 describe('Index test', () => {
   it('test', () => {

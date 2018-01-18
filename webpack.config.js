@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [
-    './src/index.js'
+    './src/app.js'
   ],
   output: {
     path: __dirname + '/build',
@@ -25,12 +25,15 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: "eslint-loader",
+        enforce: "pre",
+        // options: {
+        //   configPath: __dirname + "/.eslintrc.js"
+        // }
       }
     ]
   },
   devtool: 'inline-source-map'
-
   // resolve: {
   //   extensions: ['.js', '.jsx']
   // },  

@@ -1,7 +1,7 @@
 {
   "name": "i-ching-online",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "repository": "git@github.com:raven29/i-ching-online.git",
   "author": "Vladimir Kovarsky <Vladimir.Kovarsky@sizmek.com>",
   "license": "MIT",
@@ -12,6 +12,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "eslint": "^4.15.0",
+    "eslint-loader": "^1.9.0",
     "eslint-plugin-jest": "^21.6.2",
     "eslint-plugin-react": "^7.5.1",
     "html-webpack-plugin": "^2.30.1",
