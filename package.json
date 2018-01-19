@@ -25,5 +25,9 @@
     "test": "yarn jest",
     "test:watch": "yarn jest --watch",
     "lint": "eslint src tests"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   }
 }
