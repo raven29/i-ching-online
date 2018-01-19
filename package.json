@@ -24,7 +24,10 @@
   "scripts": {
     "test": "yarn jest",
     "test:watch": "yarn jest --watch",
-    "lint": "eslint src tests"
+    "lint": "eslint src tests",
+    "build": "webpack -p --progress",
+    "build:watch": "yarn build --watch --stdin",
+    "start": "webpack-dev-server --stdin --progress --open"
   },
   "dependencies": {
     "react": "^16.2.0",
