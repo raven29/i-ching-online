@@ -1,4 +1,30 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const isProdEnv = process.argv.indexOf('-p') !== -1;
+const isDevEnv = process.argv.indexOf('-d') !== -1;
+
+const plugins = [
+  new HtmlWebpackPlugin({
+      inject: true,
+      template: 'public/index.html',
+  }),
+];
+
+if (isProdEnv) {
+  plugins.push(new webpack.optimize.UglifyJsPlugin({
+    // compress: {
+    //   warnings: false,
+    //   comparisons: false,
+    // },        
+    output: {
+      comments: false,
+      // ascii_only: true,
+    },
+    // sourceMap: true,
+  }));
+};
+
+const devtool = isProdEnv ? false : 'inline-source-map';
 
 module.exports = {
   entry: [
@@ -9,12 +35,7 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-        inject: true,
-        template: 'public/index.html',
-    }),
-  ],
+  plugins,
   module: {
     rules: [
       {
@@ -33,11 +54,12 @@ module.exports = {
       }
     ]
   },
-  devtool: 'inline-source-map'
+  devtool,
   // resolve: {
   //   extensions: ['.js', '.jsx']
   // },  
   // devServer: {
-  //   contentBase: __dirname + '/build'
+  //   contentBase: __dirname + '/build',
+  //   watchContentBase: true,
   // },
 };
