@@ -1,11 +1,17 @@
 import '../src/app';
 
-describe('Index test', () => {
-  it('test', () => {
-    expect(true).toBe(true);
+jest.mock('react-dom', () => {
+  return {
+    render: jest.fn(),
+  };
+});
+
+describe('App test', () => {
+  it("Render should be called", () => {
+    const {render} = require('react-dom');
+    expect(render).toHaveBeenCalled();
   });
-  it('renders without crashing', () => {
+  it('Create element works', () => {
     const div = document.createElement('div');
-    console.log(div);
   });
 });
