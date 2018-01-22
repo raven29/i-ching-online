@@ -13,13 +13,14 @@ module.exports = {
       "plugin:react/recommended",
       "plugin:jest/recommended"
     ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
-        },
-        "sourceType": "module"
-    },
+    // "parserOptions": {
+    //     "ecmaFeatures": {
+    //         "experimentalObjectRestSpread": true,
+    //         "jsx": true
+    //     },
+    //     "sourceType": "module"
+    // },
+    "parser": "babel-eslint",
     "plugins": ["react", "jest"],
     "rules": {
         "indent": [error, 2],
