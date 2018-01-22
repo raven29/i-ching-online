@@ -1,7 +1,9 @@
-import {getRandom} from './lib/utils';
-import {Component} from 'react';
-console.log(Component.x);
+// import {getRandom} from './lib/utils';
+import ReactDOM from 'react-dom';
+import React from 'react';
+import Canvas from './widgets/canvas';
 
-console.log(getRandom([10,1]));
-let text = 'I am alive!';
-console.log(`Inserted text: "${text}"`);
+ReactDOM.render(
+  <Canvas/>,
+  document.getElementById('root')
+);
