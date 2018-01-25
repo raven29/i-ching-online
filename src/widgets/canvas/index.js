@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BunchOfStems from '../bunch_of_stems';
+const R = require('ramda');
 
 export default class Canvas extends React.Component {
   static propTypes = {
@@ -9,35 +10,35 @@ export default class Canvas extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {current: this.props.initialState};
+    const positioning = this.props.initialState.map((s) => {
+      return Object.assign({}, s.stem.positioning);
+    });
+    this.state = {positioning};
   }
 
   handleClick = () => {
-    const current = this.state.current.map((s, i) => {
-      const newStem = Object.assign({}, {
-        knots: s.knots, 
-        stem: {
-          style: {
-            backgroundImage: s.stem.style.backgroundImage, 
-            top: s.stem.style.top
-          }
-        }
-      });
-      newStem.stem.style.transform = 'rotate(0deg)';
+    const transform = 'rotate(0deg)';
+    let left = null;
+    const positioning = this.state.positioning.map((p, i) => {
       if (i < 2) {
-        newStem.stem.style.left = (20 + 20 * i + 'px');
+        left = (20 + 20 * i + 'px');
       } else {
-        newStem.stem.style.left = (100 + 20 * i + 'px');
+        left = (100 + 20 * i + 'px');
       }
-      return newStem;
+      return {transform, left};
     });
-    this.setState({current});
+    this.setState({positioning});
   }
 
   render() {
+    const mergeFn = R.zipWith((p, s) => {
+      const style = R.merge(p.stem.appearance, s);
+      return R.merge(p, {stem: {style}});
+    });
+    const state = mergeFn(this.props.initialState, this.state.positioning);
     return (
       <div id="canvas" onClick={this.handleClick}>
-        <BunchOfStems state={this.state.current}/>
+        <BunchOfStems state={state}/>
       </div>
     );
   }
