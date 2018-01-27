@@ -1,11 +1,11 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import Canvas from './widgets/canvas';
-import {getInitialState} from './lib/utils';
+import {generateStems} from './lib/utils';
 
-const initialState = getInitialState();
+const stems = generateStems();
 
 ReactDOM.render(
-  <Canvas initialState={initialState}/>,
+  <Canvas stems={stems}/>,
   document.getElementById('root')
 );

@@ -5,21 +5,19 @@ const R = require('ramda');
 
 export default class Canvas extends React.Component {
   static propTypes = {
-    initialState: PropTypes.arrayOf(PropTypes.object).isRequired
+    stems: PropTypes.arrayOf(PropTypes.object).isRequired
   };
 
   constructor(props) {
     super(props);
-    const positioning = this.props.initialState.map((s) => {
-      return Object.assign({}, s.stem.positioning);
-    });
-    this.state = {positioning};
+    const styles = this.props.stems.map((s) => s.style);
+    this.state = {styles};
   }
 
   handleClick = () => {
     const transform = 'rotate(0deg)';
     let left = null;
-    const positioning = this.state.positioning.map((p, i) => {
+    const styles = this.state.styles.map((p, i) => {
       if (i < 2) {
         left = (20 + 20 * i + 'px');
       } else {
@@ -27,18 +25,15 @@ export default class Canvas extends React.Component {
       }
       return {transform, left};
     });
-    this.setState({positioning});
+    this.setState({styles});
   }
 
   render() {
-    const mergeFn = R.zipWith((p, s) => {
-      const style = R.merge(p.stem.appearance, s);
-      return R.merge(p, {stem: {style}});
-    });
-    const state = mergeFn(this.props.initialState, this.state.positioning);
+    const mergeFn = R.zipWith((stem, style) => R.mergeDeepRight(stem, {style}));
+    const stems = mergeFn(this.props.stems, this.state.styles);
     return (
       <div id="canvas" onClick={this.handleClick}>
-        <BunchOfStems state={state}/>
+        <BunchOfStems stems={stems}/>
       </div>
     );
   }
