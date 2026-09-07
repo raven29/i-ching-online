@@ -23,7 +23,7 @@ module.exports = {
     "parser": "babel-eslint",
     "plugins": ["react", "jest"],
     "rules": {
-        "indent": [error, 2],
+        // "indent": [error, 2],
         "linebreak-style": [error, "unix"],
         "no-console": [warn, { allow: ["warn", "error"] }],
         "quotes": [error, "single"],

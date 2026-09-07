@@ -7,7 +7,7 @@ jest.mock('react-dom', () => {
 });
 
 describe('App test', () => {
-  it("Render should be called", () => {
+  it('Render should be called', () => {
     const {render} = require('react-dom');
     expect(render).toHaveBeenCalled();
   });

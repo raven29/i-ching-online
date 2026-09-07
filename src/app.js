@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import Canvas from './widgets/canvas';
+import Canvas from './components/canvas';
 import {generateStems} from './lib/utils';
 
 const stems = generateStems();

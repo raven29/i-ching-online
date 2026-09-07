@@ -5,8 +5,8 @@ const isDevEnv = process.argv.indexOf('-d') !== -1;
 
 const plugins = [
   new HtmlWebpackPlugin({
-      inject: true,
-      template: 'public/index.html',
+    inject: true,
+    template: 'public/index.html',
   }),
 ];
 
@@ -46,8 +46,8 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: "eslint-loader",
-        enforce: "pre",
+        loader: 'eslint-loader',
+        enforce: 'pre',
         // options: {
         //   configPath: __dirname + "/.eslintrc.js"
         // }
